@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI/CD workflow
 
 # Controls when the workflow will run
 on:
@@ -38,3 +38,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Test ls command
         run: python main.py
+ 
+      # Runs a set of commands using the runners shell
+      - name: Docker cmd
+        run: docker
