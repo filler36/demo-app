@@ -38,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USER }}/feelthenotes:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/feelthenotes:latest
 
       - name: Connect to remote server
         uses: appleboy/ssh-action@master
