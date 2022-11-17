@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  backend:
+    image: filler36/feelthenotes:latest
+    ports:
+      - 5000:5000
