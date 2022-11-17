@@ -36,6 +36,8 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
           sudo chmod 600 ~/.ssh/private.key
           echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/private.key $ORACLE_USER@$ORACLE_HOST
+          hostname
         shell: bash
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
@@ -43,10 +45,6 @@ jobs:
           ORACLE_USER: ${{secrets.ORACLE_USER}}
           ORACLE_HOST: ${{secrets.ORACLE_HOST}}
 
-      - name: connect to oracle host
-        run: |
-          ssh -i ~/.ssh/private.key $ORACLE_USER@$ORACLE_HOST
-          hostname
 
       #- name: Run docker container
       #  run: docker run feelthenotes
