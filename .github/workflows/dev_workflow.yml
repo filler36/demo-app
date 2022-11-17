@@ -29,18 +29,18 @@ jobs:
         run: docker build -t feelthenotes .
 
       - name: Create SSH key
-          run: |
-            mkdir -p ~/.ssh/
-            echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
-            sudo chmod 600 ~/.ssh/private.key
-            echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
-          shell: bash
-          env:
-            SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-            SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-            SSH_KEY_PATH: ~/.ssh/private.key
-            ORACLE_USER: ${{secrets.ORACLE_USER}}
-            ORACLE_HOST: ${{secrets.ORACLE_HOST}}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
+          sudo chmod 600 ~/.ssh/private.key
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_KEY_PATH: ~/.ssh/private.key
+          ORACLE_USER: ${{secrets.ORACLE_USER}}
+          ORACLE_HOST: ${{secrets.ORACLE_HOST}}
 
       - name: connect to oracle host
         run: |
