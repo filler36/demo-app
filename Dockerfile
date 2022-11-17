@@ -6,4 +6,4 @@ COPY ./requirements.txt ./
 
 RUN pip install -r requirements.txt
 
-CMD [ "python", "-m", "django" ]
+CMD [ "python", "feelthenotes/manage.py", "runserver" ]

@@ -28,8 +28,24 @@ jobs:
       - name: Build docker image
         run: docker build -t feelthenotes .
 
-      - name: Run docker container
-        run: docker run feelthenotes
+      - name: Create SSH key
+          run: |
+            mkdir -p ~/.ssh/
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/private.key
+            sudo chmod 600 ~/.ssh/private.key
+            echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          shell: bash
+          env:
+            SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+            SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+            SSH_KEY_PATH: ~/.ssh/private.key
+            ORACLE_USER: ${{secrets.ORACLE_USER}}
+            ORACLE_HOST: ${{secrets.ORACLE_HOST}}
 
-      - name: test
-        run: echo $GITHUB_WORKSPACE
+      - name: connect to oracle host
+        run: |
+          ssh -i $SSH_KEY_PATH $ORACLE_USER@$ORACLE_HOST
+          hostname
+
+      #- name: Run docker container
+      #  run: docker run feelthenotes
