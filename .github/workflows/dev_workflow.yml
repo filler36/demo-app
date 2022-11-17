@@ -40,13 +40,12 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
-          SSH_KEY_PATH: ~/.ssh/private.key
           ORACLE_USER: ${{secrets.ORACLE_USER}}
           ORACLE_HOST: ${{secrets.ORACLE_HOST}}
 
       - name: connect to oracle host
         run: |
-          ssh -i $SSH_KEY_PATH $ORACLE_USER@$ORACLE_HOST
+          ssh -i ~/.ssh/private.key $ORACLE_USER@$ORACLE_HOST
           hostname
 
       #- name: Run docker container
