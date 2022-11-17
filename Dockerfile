@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 CMD [ "django-admin", "startproject", "feelthenotes"]
 
-CMD [ "python", "feelthenotes/manage.py", "runserver" ]
+CMD [ "python", "./feelthenotes/manage.py", "runserver" ]
