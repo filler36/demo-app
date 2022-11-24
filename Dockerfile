@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY ./requirements.txt ./
 
+COPY ./feelthenotes ./
+
 RUN pip install -r requirements.txt
 
-#RUN [ "python", "-m", "pip", "install", "django" ]
-
-RUN [ "django-admin", "startproject", "feelthenotes"]
+#RUN [ "django-admin", "startproject", "feelthenotes"]
 
 CMD [ "python", "./feelthenotes/manage.py", "runserver", "0.0.0.0:8000" ]
