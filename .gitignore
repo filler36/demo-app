@@ -1,2 +1,11 @@
 .idea
 venv
+__pycache__
+settings.py
+*.pyc
+*.log
+*~
+myvenv
+db.sqlite3
+/static
+.DS_Store

@@ -6,6 +6,8 @@ COPY ./requirements.txt ./
 
 COPY ./feelthenotes ./
 
+COPY ./feelthenotes/feelthenotes/settings.py ./feelthenotes/feelthenotes/settings.py
+
 RUN pip install -r requirements.txt
 
 #RUN [ "django-admin", "startproject", "feelthenotes"]
