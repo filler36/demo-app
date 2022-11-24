@@ -16,8 +16,7 @@
 - Go to Networking -> Virtual Cloud Network -> Security Lists -> Choose Your Security List.
 Change Ingress rule "ICMP traffic for: All" from localhost to 0.0.0.0/0
 Add Ingress rule (Source CIDR: 0.0.0.0/0, IP Protocol: TCP, Destination Port Range: 8000)
-
-
+- Add next string to the ~/.profile: ***export DJANGO_SECRET_KEY="here should be Django secret key"***
 
 ## List of technologies
 - Python

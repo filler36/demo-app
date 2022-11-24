@@ -1,9 +1,9 @@
 .idea
 venv
 __pycache__
-settings.py
 *.pyc
 *.log
+*.env
 *~
 myvenv
 db.sqlite3
