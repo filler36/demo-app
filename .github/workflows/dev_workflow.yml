@@ -65,7 +65,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            echo ${{ secrets.DJANGO_SECRET_KEY }} > .env
+            echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > .env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             docker compose pull
             docker compose up -d --force-recreate
