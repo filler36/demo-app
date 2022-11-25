@@ -8,6 +8,6 @@ COPY ./feelthenotes ./feelthenotes
 
 RUN pip install -r requirements.txt
 
-#RUN [ "django-admin", "startproject", "feelthenotes"]
+RUN [ "python", "./feelthenotes/manage.py", "migrate"]
 
 CMD [ "python", "./feelthenotes/manage.py", "runserver", "0.0.0.0:8000" ]

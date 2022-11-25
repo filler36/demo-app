@@ -11,6 +11,8 @@
 #### Oracle Cloud
 - Create Oracle Cloud Instance (Ubuntu)
 - Install firewalld on server: ***sudo apt install firewalld***
+- sudo systemctl enable firewalld
+- sudo systemctl start firewalld
 - sudo firewall-cmd --zone=public --permanent --add-port=<port of the app>/tcp
 - sudo firewall-cmd --reload
 - Go to Networking -> Virtual Cloud Network -> Security Lists -> Choose Your Security List.
