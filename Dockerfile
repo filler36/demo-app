@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY ./requirements.txt ./
 
-COPY ./feelthenotes ./
+COPY ./feelthenotes ./feelthenotes
 
 RUN pip install -r requirements.txt
 
