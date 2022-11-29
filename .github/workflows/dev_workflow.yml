@@ -6,11 +6,11 @@ name: CI/CD workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "dev" branch
   push:
-    branches: [ "dev" ]
+    #branches: [ "dev" ]
     path:
       - feelthenotes-app/**
   pull_request:
-    branches: [ "dev" ]
+    #branches: [ "dev" ]
     path:
       - feelthenotes-app/**
 
