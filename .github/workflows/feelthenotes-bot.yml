@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Set up QEMU (required for building image for linux/arm64/v8)
+          uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx (required for building image for linux/arm64/v8)
+          uses: docker/setup-buildx-action@v2
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -35,6 +41,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: feelthenotes-bot
+          platforms: linux/arm64/v8
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/feelthenotes-bot:latest
 
