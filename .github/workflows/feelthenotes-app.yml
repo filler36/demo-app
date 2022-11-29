@@ -65,5 +65,6 @@ jobs:
           script: |
             echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > .env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+            cd ./feelthenotes-app
             docker compose pull
             docker compose up -d --force-recreate
