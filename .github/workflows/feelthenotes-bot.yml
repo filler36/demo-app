@@ -46,7 +46,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: "./feelthenotes-bot/docker-compose.yml"
-          target: "./feelthenotes-bot/"
+          target: "."
 
       - name: Connect to remote server and compose up
         uses: appleboy/ssh-action@master
