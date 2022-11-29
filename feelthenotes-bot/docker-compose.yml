@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  feelthenotes-bot:
+    image: filler36/feelthenotes-bot:latest
+    environment:
+      - TELEGRAM_API_TOKEN=${TELEGRAM_API_TOKEN}
+    command: >
+      sh -c "python ./feelthenotes-bot/main.py"

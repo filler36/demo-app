@@ -1,16 +1,16 @@
-name: feelthenotes-app
+name: feelthenotes-bot
 
 on:  # Controls when the workflow will run
   push:  # Triggers the workflow on push or pull request events but only for the "dev" branch
     #branches: [ "dev" ]
     paths:
-      - feelthenotes-app/**
-      - .github/workflows/feelthenotes-app.yml
+      - feelthenotes-bot/**
+      - .github/workflows/feelthenotes-bot.yml
   pull_request:
     #branches: [ "dev" ]
     paths:
-      - feelthenotes-app/**
-      - .github/workflows/feelthenotes-app.yml
+      - feelthenotes-bot/**
+      - .github/workflows/feelthenotes-bot.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,25 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Set up QEMU (required for building image for linux/arm64/v8)
-        uses: docker/setup-qemu-action@v2
-
-      - name: Set up Docker Buildx (required for building image for linux/arm64/v8)
-        uses: docker/setup-buildx-action@v2
-
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build feelthenotes-app image and push to Docker Hub
+      - name: Build feelthenotes-bot image and push to Docker Hub
         uses: docker/build-push-action@v3
         with:
-          context: feelthenotes-app
-          platforms: linux/arm64/v8
+          context: feelthenotes-bot
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/feelthenotes-app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/feelthenotes-bot:latest
 
       - name: Copy docker-compose.yml to remote server
         uses: appleboy/scp-action@master
@@ -52,8 +45,8 @@ jobs:
           username: ${{ secrets.ORACLE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "./feelthenotes-app/docker-compose.yml"
-          target: "./feelthenotes-app/docker-compose.yml"
+          source: "./feelthenotes-bot/docker-compose.yml"
+          target: "./feelthenotes-bot/docker-compose.yml"
 
       - name: Connect to remote server and compose up
         uses: appleboy/ssh-action@master
@@ -63,7 +56,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > .env
+            echo TELEGRAM_API_TOKEN="${{ secrets.TELEGRAM_API_TOKEN }}" > ./feelthenotes-bot/.env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+            cd ./feelthenotes-bot
             docker compose pull
             docker compose up -d --force-recreate
