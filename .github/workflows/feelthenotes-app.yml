@@ -63,7 +63,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > .env
+            echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > ./feelthenotes-app/.env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             cd ./feelthenotes-app
             docker compose pull
