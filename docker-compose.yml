@@ -2,11 +2,11 @@ version: "3"
 
 services:
   web:
-    image: filler36/feelthenotes:latest
+    image: filler36/feelthenotes-app:latest
     ports:
       - 8000:8000
     environment:
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     command: >
-      sh -c "python ./feelthenotes/manage.py migrate &&
-             python ./feelthenotes/manage.py runserver 0.0.0.0:8000"
+      sh -c "python ./feelthenotes-app/manage.py migrate &&
+             python ./feelthenotes-app/manage.py runserver 0.0.0.0:8000"
