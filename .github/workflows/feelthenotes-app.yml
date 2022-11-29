@@ -9,10 +9,12 @@ on:
     #branches: [ "dev" ]
     paths:
       - feelthenotes-app/**
+      - .github/workflows/feelthenotes-app.yml
   pull_request:
     #branches: [ "dev" ]
     paths:
       - feelthenotes-app/**
+      - .github/workflows/feelthenotes-app.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
