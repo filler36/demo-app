@@ -7,11 +7,11 @@ on:
   # Triggers the workflow on push or pull request events but only for the "dev" branch
   push:
     #branches: [ "dev" ]
-    path:
+    paths:
       - feelthenotes-app/**
   pull_request:
     #branches: [ "dev" ]
-    path:
+    paths:
       - feelthenotes-app/**
 
   # Allows you to run this workflow manually from the Actions tab
