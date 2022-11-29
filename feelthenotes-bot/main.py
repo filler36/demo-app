@@ -30,7 +30,7 @@ def error(update, context):
 
 
 def main():
-    TELEGRAM_API_KEY = os.environ['TELEGRAM_API_KEY']
+    TELEGRAM_API_KEY = os.environ['TELEGRAM_API_TOKEN']
     updater = Updater(TELEGRAM_API_KEY, use_context=True)
     updater.dispatcher.add_handler(CommandHandler('start', start_command))
     updater.dispatcher.add_handler(CommandHandler('help', help_command))
