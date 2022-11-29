@@ -2,8 +2,6 @@ FROM python:3.9.15-alpine
 
 WORKDIR /app
 
-COPY ./requirements.txt ./
+COPY . ./feelthenotes-bot
 
-COPY ./feelthenotes ./feelthenotes
-
-RUN pip install -r requirements.txt
+RUN pip install -r ./feelthenotes-bot/requirements.txt

@@ -1,6 +1,6 @@
 # Feel The Notes 
-![example workflow](https://github.com/filler36/demo-app/actions/workflows/dev_workflow.yml/badge.svg)
-
+![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-app.yml/badge.svg)  
+![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-bot.yml/badge.svg)  
 
 ## Prerequisites
 #### Docker:
