@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY . ./feelthenotes
 
-ENV DEBIAN_FRONTEND="noninteractive" TZ="Europe/Warsaw"
+RUN apk add --no-cache tzdata
 
-RUN DEBIAN_FRONTEND=$DEBIAN_FRONTEND TZ=$TZ apt-get -y install tzdata
+ENV TZ=Europe/Warsaw
 
 RUN pip install -r ./feelthenotes/requirements.txt
