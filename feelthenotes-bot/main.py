@@ -22,7 +22,7 @@ def make_response(text):
     if text in ['fuck', 'suck', 'dick', 'ass']:
         return 'Ohh, fuck you man! Get outa here!'
     if text in ['bye', 'goodbye']:
-        return ['Asta la vista, baby!']
+        return 'Asta la vista, baby!'
 
 
 def error(update, context):

@@ -1,7 +1,9 @@
 FROM python:3.9.15-alpine
 
+ENV APP_DIR="./feelthenotes-bot"
+
 WORKDIR /app
 
-COPY . ./feelthenotes-bot
+COPY . $APP_DIR
 
-RUN pip install -r ./feelthenotes-bot/requirements.txt
+RUN pip install -r $APP_DIR/requirements.txt
