@@ -1,0 +1,14 @@
+{% extends "mainapp/layout.html" %}
+
+{% block body %}
+    <h1>{{ title }}:</h1>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <a href="{% url 'note' note.id %}">
+                Note {{ note.id }}: {{ note.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
