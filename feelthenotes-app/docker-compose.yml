@@ -8,5 +8,6 @@ services:
     environment:
       - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     command: >
-      sh -c "python ./feelthenotes-app/manage.py migrate &&
+      sh -c "python ./feelthenotes-app/manage.py makemigrations &&
+             python ./feelthenotes-app/manage.py migrate &&
              python ./feelthenotes-app/manage.py runserver 0.0.0.0:8000"

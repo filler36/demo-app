@@ -30,9 +30,10 @@ Add Ingress rule (Source CIDR: 0.0.0.0/0, IP Protocol: TCP, Destination Port Ran
 - GitHub Actions
 - Oracle Cloud
 - SQLite
-- Telegram API Bot
+- Telegram Bot API
 - Trello
 - ?HTML
 - ?JS
 - ?Ansible
 - ?Grafana
+- ?TUnit tests
