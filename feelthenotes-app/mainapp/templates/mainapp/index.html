@@ -1,0 +1,16 @@
+{% extends "mainapp/layout.html" %}
+
+{% block body %}
+    <h1>
+        Menu
+    </h1>
+    <h3>
+        {% for page in pages %}
+            <li>
+                <a href="{% url page %}">
+                    {{ page|capfirst }}
+                </a>
+            </li>
+        {% endfor %}
+    </h3>
+{% endblock %}

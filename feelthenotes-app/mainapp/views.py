@@ -4,6 +4,10 @@ from django.utils import timezone
 from .models import Note
 
 # Create your views here.
+def index(request):
+    return render(request, "mainapp/index.html", {'title': 'Index', 'pages': ['notes', 'status']})
+
+
 def status(request):
     return render(request, "mainapp/status.html", {'title': 'Status', 'start_time': start_time})
 
