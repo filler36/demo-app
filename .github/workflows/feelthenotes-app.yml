@@ -70,4 +70,4 @@ jobs:
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             cd ./feelthenotes-app
             docker compose pull
-            docker compose up -d --force-recreate --exit-code-from feelthenotes-app
+            docker compose up --force-recreate --exit-code-from feelthenotes-app
