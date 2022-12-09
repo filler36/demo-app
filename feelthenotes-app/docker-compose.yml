@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  web:
+  feelthenotes-app:
     image: filler36/feelthenotes-app:latest
     ports:
       - 8000:8000
