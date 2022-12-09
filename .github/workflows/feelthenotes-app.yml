@@ -64,6 +64,9 @@ jobs:
           port: 22
           script: |
             echo DJANGO_SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" > ./feelthenotes-app/.env
+            echo DJANGO_SUPERUSER_USERNAME="${{ secrets.DJANGO_SUPERUSER_USERNAME }}" >> ./feelthenotes-app/.env
+            echo DJANGO_SUPERUSER_PASSWORD="${{ secrets.DJANGO_SUPERUSER_PASSWORD }}" >> ./feelthenotes-app/.env
+            echo DJANGO_SUPERUSER_EMAIL="${{ secrets.DJANGO_SUPERUSER_EMAIL }}" >> ./feelthenotes-app/.env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             cd ./feelthenotes-app
             docker compose pull
