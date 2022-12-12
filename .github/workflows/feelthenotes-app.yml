@@ -71,5 +71,5 @@ jobs:
             cd ./feelthenotes-app
             docker compose pull
             docker compose up -d --force-recreate
-            sleep 10 && docker compose ps feelthenotes-app --status="running" | grep "running (healthy)"
-            if [ $? = 0 ]; then echo "Service is running and healthy"; else exit 1; fi
+            sleep 65 && docker compose ps feelthenotes-app --status="running" | grep "running (healthy)"
+            if [ $? = 0 ]; then echo "Service is running and healthy"; else echo "Service is unhealthy. Aborting job..." exit 1; fi
