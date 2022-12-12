@@ -70,4 +70,6 @@ jobs:
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             cd ./feelthenotes-app
             docker compose pull
-            docker compose up --force-recreate --exit-code-from feelthenotes-app
+            docker compose up -d --force-recreate
+            docker compose ps feelthenotes-app --status="running" | grep "running (healthy)"
+            sleep 10 && if [ $? = 0 ]; then echo "Service is running and healthy"; else exit 1; fi
