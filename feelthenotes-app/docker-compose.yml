@@ -6,7 +6,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      - ZDJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
     command: >
       sh -c "python ./feelthenotes-app/manage.py makemigrations &&
              python ./feelthenotes-app/manage.py migrate &&
