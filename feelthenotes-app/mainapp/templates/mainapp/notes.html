@@ -1,6 +1,15 @@
 {% extends "mainapp/layout.html" %}
 
 {% block body %}
+    <form action="{% url 'create_note' %}" method="post">
+        {% csrf_token %}
+        title
+        <input type="text" name="note_title">
+        text
+        <input type="text" name="note_text">
+        <input type="submit" value="Create note">
+    </form>
+
     <h1>{{ title }}:</h1>
     <ul>
         {% for note in notes %}

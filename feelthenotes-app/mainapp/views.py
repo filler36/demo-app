@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from .models import Note
 
@@ -19,6 +19,12 @@ def notes(request):
 def note(request, note_id):
     note = Note.objects.get(pk=note_id)
     return render(request, 'mainapp/note.html', {'note': note})
+
+
+def create_note(request):
+    note = Note(title=request.POST['note_title'], text=request.POST['note_title'])
+    note.save()
+    return HttpResponseRedirect(reverse('note', args=(note.id,)))
 
 
 start_time = timezone.now()
