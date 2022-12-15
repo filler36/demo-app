@@ -22,7 +22,7 @@ def note(request, note_id):
 
 
 def create_note(request):
-    note = Note(title=request.POST['note_title'], text=request.POST['note_title'])
+    note = Note(title=request.POST['note_title'], text=request.POST['note_text'])
     note.save()
     return HttpResponseRedirect(reverse('note', args=(note.id,)))
 
