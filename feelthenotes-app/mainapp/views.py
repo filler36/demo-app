@@ -13,7 +13,7 @@ def status(request):
 
 
 def notes(request):
-    return render(request, "mainapp/notes.html", {'title': 'Notes', 'notes': Note.objects.all()})
+    return render(request, "mainapp/notes.html", {'title': 'Notes', 'notes': Note.objects.all().order_by('-id')})
 
 
 def note(request, note_id):
