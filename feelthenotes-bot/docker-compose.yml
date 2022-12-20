@@ -5,4 +5,5 @@ services:
     image: filler36/feelthenotes-bot:latest
     environment:
       - TELEGRAM_API_TOKEN=${TELEGRAM_API_TOKEN}
+      - ORACLE_HOST=${ORACLE_HOST}
     command: python ./feelthenotes-bot/main.py
