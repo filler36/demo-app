@@ -4,6 +4,7 @@ __pycache__
 *.pyc
 *.log
 *.env
+*.ini
 *~
 myvenv
 db.sqlite3
