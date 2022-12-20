@@ -68,5 +68,5 @@ jobs:
             cd ./feelthenotes-bot
             docker compose pull
             docker compose up -d --force-recreate
-            docker compose ps feelthenotes-bot --status="running" | grep "running"
+            sleep 5 && docker compose ps feelthenotes-bot --status="running" | grep "running"
             if [ $? = 0 ]; then echo "Service is running"; else echo "Failed to start the service. Aborting job..." && exit 1; fi
