@@ -64,6 +64,7 @@ jobs:
           port: 22
           script: |
             echo TELEGRAM_API_TOKEN="${{ secrets.TELEGRAM_API_TOKEN }}" > ./feelthenotes-bot/.env
+            echo ORACLE_HOST="${{ secrets.ORACLE_HOST }}" >> ./feelthenotes-bot/.env
             docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
             cd ./feelthenotes-bot
             docker compose pull

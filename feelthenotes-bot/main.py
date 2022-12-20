@@ -3,7 +3,6 @@ import telegram
 import re
 import os
 
-from configparser import ConfigParser
 from telegram.ext import CommandHandler, ConversationHandler, MessageHandler, Updater
 from telegram.bot import Bot, BotCommand
 from telegram.ext import Filters
@@ -111,10 +110,8 @@ if __name__ == '__main__':
     TELEGRAM_API_TOKEN = os.environ['TELEGRAM_API_TOKEN']
     START_NOTE, NOTE_TITLE, NOTE_TEXT, CANCEL = range(4)
     YES_NO_REGEX = re.compile(r'^(yes|no|y|n)$', re.IGNORECASE)
-
-    config = ConfigParser()
-    config.read('config.ini')
-    APP_URL = config.get('common', 'app_url')
+    ORACLE_HOST = os.environ['ORACLE_HOST']
+    APP_URL = f'http://{ORACLE_HOST}:8000'
 
     register_bot_commands()
     updater = Updater(TELEGRAM_API_TOKEN)
