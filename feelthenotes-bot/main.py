@@ -4,7 +4,7 @@ import re
 import os
 
 from telegram.ext import CommandHandler, ConversationHandler, MessageHandler, Updater
-from telegram. import Bot, BotCommand
+from telegram import Bot, BotCommand
 from telegram.ext import filters
 
 import logging
