@@ -4,8 +4,8 @@ import re
 import os
 
 from telegram.ext import CommandHandler, ConversationHandler, MessageHandler, Updater
-from telegram.bot import Bot, BotCommand
-from telegram.ext import Filters
+from telegram. import Bot, BotCommand
+from telegram.ext import filters
 
 import logging
 #logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -118,10 +118,10 @@ if __name__ == '__main__':
     handler = ConversationHandler(
           entry_points=[CommandHandler('start', start)],
           states={
-                START_NOTE: [MessageHandler(Filters.regex(YES_NO_REGEX), start_note)],
-                NOTE_TITLE: [MessageHandler(Filters.text & (~ Filters.command), note_title)],
-                NOTE_TEXT: [MessageHandler(Filters.text & (~ Filters.command), note_text)],
-                CANCEL: [MessageHandler(Filters.regex(YES_NO_REGEX), cancel)],
+                START_NOTE: [MessageHandler(filters.regex(YES_NO_REGEX), start_note)],
+                NOTE_TITLE: [MessageHandler(filters.text & (~ filters.command), note_title)],
+                NOTE_TEXT: [MessageHandler(filters.text & (~ filters.command), note_text)],
+                CANCEL: [MessageHandler(filters.regex(YES_NO_REGEX), cancel)],
           },
           fallbacks=[CommandHandler('cancel', cancel)],
     )
