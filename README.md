@@ -36,6 +36,7 @@ Add Ingress rule (Source CIDR: 0.0.0.0/0, IP Protocol: TCP, Destination Port Ran
 - Logging
 - Trello
 - HTML
+- CSS
 - JS
 - ?Ansible
 - ?Grafana
