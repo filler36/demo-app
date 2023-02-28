@@ -1,5 +1,5 @@
 # Feel The Notes 
-![bot_profile_photo](/feelthenotes-bot/bot_profile_photo.png?raw=true | width=300)
+![bot_profile_photo](/feelthenotes-bot/bot_profile_photo.png?raw=true|width=100px)
 ![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-app.yml/badge.svg)  
 ![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-bot.yml/badge.svg)  
 
