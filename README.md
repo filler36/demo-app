@@ -1,5 +1,5 @@
 # Feel The Notes 
-[bot_profile_photo](feelthenotes-bot/bot_profile_photo.png)
+[bot_profile_photo](blob/dev/feelthenotes-bot/bot_profile_photo.png)
 ![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-app.yml/badge.svg)  
 ![example workflow](https://github.com/filler36/demo-app/actions/workflows/feelthenotes-bot.yml/badge.svg)  
 
@@ -35,7 +35,7 @@ Add Ingress rule (Source CIDR: 0.0.0.0/0, IP Protocol: TCP, Destination Port Ran
 - Logging
 - Trello
 - HTML
-- ?JS
+- JS
 - ?Ansible
 - ?Grafana
 - ?TUnit tests
