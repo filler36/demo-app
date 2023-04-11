@@ -6,8 +6,7 @@ WORKDIR /app
 
 COPY . $APP_DIR
 
-RUN apk add --no-cache tzdata
+RUN apk add --no-cache tzdata \
+ && pip install --no-cache-dir -r $APP_DIR/requirements.txt
 
 ENV TZ=Europe/Warsaw
-
-RUN pip install -r $APP_DIR/requirements.txt
