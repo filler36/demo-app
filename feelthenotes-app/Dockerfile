@@ -4,9 +4,10 @@ ENV APP_DIR="./feelthenotes-app"
 
 WORKDIR /app
 
-COPY . $APP_DIR
-
-RUN apk add --no-cache tzdata \
- && pip install --no-cache-dir -r $APP_DIR/requirements.txt
+RUN apk add --no-cache tzdata
 
 ENV TZ=Europe/Warsaw
+
+COPY . $APP_DIR
+
+RUN pip install --no-cache-dir -r $APP_DIR/requirements.txt
